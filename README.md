@@ -4,7 +4,7 @@ Simple powershell scripts to fix Windows 10.
 
 Clone or directly download this repository and run `./00-SetExecutionPolicy-Unrestricted.ps1` first. Then run whatever **fix** you want for your system.
 
-Instructions for some scripts is present [below](https://github.com/dpi0/win-fix/edit/main/README.md#for-servicesdisable-windowsdefender-dependserviceps1).
+Instructions for some scripts is present [below](https://github.com/dpi0/win-fix#for-servicesdisable-windowsdefender-dependserviceps1).
 
 To run a single script remotely without manually downloading, Use the `https://raw.githubusercontent.com` GitHub url for that script. Like,
 
