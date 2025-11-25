@@ -1,8 +1,7 @@
 # Auto-elevate if not running as Administrator
-If (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(
-    [Security.Principal.WindowsBuiltInRole] "Administrator"
-)) {
-    Start-Process powershell "-ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
+If (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()
+).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Start-Process powershell.exe "-ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
     exit
 }
 
@@ -56,8 +55,13 @@ foreach ($service in $services) {
         Write-Output "$service successfully set to Disabled."
     }
     catch {
-        Write-Output "Could not process $service: $($_.Exception.Message)"
+        # FIXED: use ${service} so the colon is treated as a literal
+        Write-Output "Could not process ${service}: $($_.Exception.Message)"
+        # Alternative would be:
+        # Write-Output ("Could not process {0}: {1}" -f $service, $_.Exception.Message)
     }
 
     Write-Output "-------------------------------------------"
 }
+
+Read-Host "Done. Press ENTER to exit"
