@@ -65,3 +65,6 @@ foreach ($service in $services) {
 }
 
 Read-Host "Done. Press ENTER to exit"
+
+# Inspired by: <https://gist.github.com/iamjonny/cad47c59f6427be27d05d568b078edf4>
+# and <https://www.makeuseof.com/disable-these-useless-windows-services/>
